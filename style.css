@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(66, 66, 66);
+    color: white;
+    padding: 100px;
+}
+
+h1 {
+    color: cornflowerblue;
+    text-align: center;
+}
+
+#intro {
+    text-align: center;
+    padding: 50px;
+    flex-direction: row;
+}
+
+#small-heading {
+    color: aquamarine;
+}
+
+#link {
+    color: cadetblue;
+}
+
+.items {
+    list-style: circle;
+}
+
+button {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button:hover {
+    background-color: rgb(86, 130, 237);
+}
+
