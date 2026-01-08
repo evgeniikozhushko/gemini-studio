@@ -3,37 +3,89 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World</title>
+    <title>Gemini Studio</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    />
   </head>
   <body>
-    <h1>Hello, World!</h1>
+    <div class="page">
+      <header class="top-bar">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <span>Gemini Studio</span>
+        </div>
+        <nav class="nav">
+          <a href="#studio">Studio</a>
+          <a href="#how">How it works</a>
+          <a href="#output">Output</a>
+        </nav>
+        <button class="ghost-button" type="button">Docs</button>
+      </header>
 
-    <section id="intro">
-      <img
-        src="https://www.astronomy.com/wp-content/uploads/2023/10/the-earth.jpg"
-        alt="Earth"
-        width="50%"
-        height="100%"
-      />
-    </section>
+      <main class="hero">
+        <section class="hero-text">
+          <p class="kicker">Gemini API Playground</p>
+          <h1>Send a prompt, get a Gemini answer in seconds.</h1>
+          <p class="subtitle">
+            Enter your idea, press run, get your results.
+          </p>
+          <div class="badge-row">
+            <span class="badge">Fast responses</span>
+            <span class="badge">Rate-limit aware</span>
+            <span class="badge">Plain JSON</span>
+          </div>
+        </section>
 
-    <section>
-      <input id="content" type="text" />
-      <button id="myButton">Click Me</button>
-      <p id="message"></p>
-    </section>
+        <section id="studio" class="card">
+          <div class="card-header">
+            <div>
+              <h2>Prompt</h2>
+              <p>Ask Gemini anything. Keep it concise and clear.</p>
+            </div>
+            <span class="status-pill">Gemini 2.5 Flash Lite</span>
+          </div>
+          <label class="input-label" for="aiInput">Your prompt</label>
+          <textarea
+            id="aiInput"
+            rows="5"
+            placeholder="Invent a yoga pose for lazy people..."
+          ></textarea>
+          <div class="action-row">
+            <button id="aiButton" class="primary-button" type="button">
+              Run Gemini
+            </button>
+            <p class="helper-text">Requests are retried on 429 errors.</p>
+          </div>
+          <div id="output" class="output-panel">
+            <div class="output-header">
+              <h3>Response</h3>
+              <span class="output-subtitle">Model output appears here.</span>
+            </div>
+            <p id="aiOutput" class="output-body">Ready when you are.</p>
+          </div>
+        </section>
+      </main>
 
-    <section>
-      <button id="myCount">Add One</button>
-      <p id="countTotal"></p>
-    </section>
+      <section id="how" class="info-grid">
+        <div class="info-card">
+          <h3>1. Type your prompt</h3>
+          <p>Give Gemini clear direction and the kind of output you expect.</p>
+        </div>
+        <div class="info-card">
+          <h3>2. We call the API</h3>
+          <p>The request uses JSON with your prompt sent to Gemini.</p>
+        </div>
+        <div class="info-card">
+          <h3>3. Read the output</h3>
+          <p>Responses appear instantly in the output panel.</p>
+        </div>
+      </section>
+    </div>
 
-    <section>
-      <button id="colorChange">Change colour</button>
-    </section>
-
-    <script src="script.js"></script>
+    <script src="index.js"></script>
   </body>
 
 </html>
