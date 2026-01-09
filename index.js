@@ -15,7 +15,7 @@ aiButton.addEventListener("click", function () {
   // User Feedback: Show loading message while waiting for API response
   aiOutput.innerText = "Percolating...";
 
-  const apiKey = "AIzaSyDyrz-Hv5VS3q7OaxwQCDSQPQXWbN9OAX0";
+  const apiKey = GEMINI_API_KEY;
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apiKey}`;
 
   async function makeRequest(isRetry = false) {
@@ -41,6 +41,9 @@ aiButton.addEventListener("click", function () {
       });
 
       if (!response.ok) {
+        // const errText = await response.text();
+        // console.error("Gemini error:", errText);
+        // throw new Error(`Status ${response.status}: ${errText}`);
         // If we hit a rate limit and haven't retried yet, wait and try again
         if (response.status === 429 && !isRetry) {
           aiOutput.innerText = "Server busy, retrying in 2s...";
@@ -57,7 +60,7 @@ aiButton.addEventListener("click", function () {
 
       const data = await response.json();
       console.log("Gemini response:", data);
-      
+
       if (data?.candidates?.[0]?.content?.parts?.[0]?.text) {
         aiOutput.innerText = data.candidates[0].content.parts[0].text;
       }
@@ -73,5 +76,3 @@ aiButton.addEventListener("click", function () {
 
   makeRequest();
 });
-
-
